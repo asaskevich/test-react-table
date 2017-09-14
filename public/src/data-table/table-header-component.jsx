@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * This filter is used to display header with sorting ability
+ */
 class TableHeaderComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +16,11 @@ class TableHeaderComponent extends React.Component {
     this.onSort = this.onSort.bind(this);
   }
 
+  /**
+   * Triggered when one of columns is selected to sort
+   * @param {String} [key] column name to sort
+   * @returns {function()}
+   */
   onSort(key) {
     return () => {
       if (this.state.key === key) {

@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * This component is used to display filter based on header of table
+ */
 class TableFilterComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +14,11 @@ class TableFilterComponent extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  /**
+   * Fired when filter is changed
+   * @param {String} [key] field to filter
+   * @returns {function(*)}
+   */
   onChange(key) {
     return (ev) => {
       this.state[key] = ev.target.value;

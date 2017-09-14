@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * This component is used to display footer - navigation buttons and size selector
+ */
 class TableFooterComponent extends React.Component {
   render() {
     return (

@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * This class is used to display one row of the data
+ */
 class TableRowComponent extends React.Component {
   render() {
     return (

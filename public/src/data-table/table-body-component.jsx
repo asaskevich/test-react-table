@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TableRowComponent from './table-row-component.jsx';
 
+/**
+ * This component used to display full bunch of data as a table body
+ */
 class TableBodyComponent extends React.Component {
   render() {
     return (

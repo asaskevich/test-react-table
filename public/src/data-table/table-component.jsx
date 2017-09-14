@@ -7,27 +7,41 @@ import TableFooterComponent from './table-footer-component.jsx';
 import TableFilterComponent from './table-filter-component.jsx';
 import { OFFSET, LIMIT } from './table-constants.js';
 
+/**
+ * This component used to control and render full table with header/body/filters and footer
+ */
 class TableComponent extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
     this.state = {
+      // Offset is the page number from which start to display information
       offset: OFFSET,
+      // Limit is the number of elements displayed on one page
       limit: LIMIT,
+      // Len is the full size of current collection (sorted, filtered) used to display
       len: props.data.length,
+      // Current page count of table
       pageCount: Math.floor(props.data.length / LIMIT),
       pagination: {
+        // Is prev button enabled
         prev: false,
+        // Is next button enabled
         next: Math.floor(props.data.length / LIMIT) > 0,
       },
+      // Header of the table
       header: props.header.slice(),
+      // Original copy of data, used to restore data after reset filter and sorting
       originalData: props.data.slice(),
+      // Current data used to display
       renderedData: props.data.slice(0, LIMIT),
+      // Current active filters
       filters: props.header.map(col => ({
         name: col.name,
         key: col.key,
         values: _.uniq(_.sortBy(props.data.map(it => it[col.key]))),
       })),
+      // Current active sort state
       sort: {
         key: null,
         asc: true,
@@ -41,6 +55,9 @@ class TableComponent extends React.Component {
     this.onFilter = this.onFilter.bind(this);
   }
 
+  /**
+   * Triggers when next-page-button is clicked
+   */
   onNextPage() {
     this.state.offset = Math.min(this.state.pageCount, this.state.offset + 1);
     this.state.pagination.prev = this.state.offset > 0;
@@ -48,6 +65,9 @@ class TableComponent extends React.Component {
     this.onPrepareData();
   }
 
+  /**
+   * Triggers when prev-page-button is clicked;
+   */
   onPrevPage() {
     this.state.offset = Math.max(0, this.state.offset - 1);
     this.state.pagination.prev = this.state.offset > 0;
@@ -55,27 +75,43 @@ class TableComponent extends React.Component {
     this.onPrepareData();
   }
 
+  /**
+   * Triggered when changed count of data to display
+   * @param {MouseEvent} [ev]
+   */
   onChangeLimit(ev) {
     this.state.limit = Math.floor(+ev.target.value || LIMIT);
     this.state.pageCount = Math.floor(this.state.len / this.state.limit);
     this.onPrepareData();
   }
 
+  /**
+   * Triggered when filter is applied to table
+   * @param filter
+   */
   onFilter(filter) {
     this.state.filter = filter;
     this.state.offset = 0;
     this.onPrepareData();
   }
 
+  /**
+   * Triggered when sorting filter is applied to table
+   * @param query
+   */
   onSort(query) {
     this.state.sort = query;
     this.state.offset = 0;
     this.onPrepareData();
   }
 
+  /**
+   * Executed when data is preparing to display (sorting, filtering, slicing)
+   */
   onPrepareData() {
     let data = this.state.originalData.slice();
 
+    // If sort filter is applied
     if (this.state.sort.asc) {
       const mod = this.state.sort.asc === 1 ? 1 : -1;
 
@@ -86,6 +122,7 @@ class TableComponent extends React.Component {
       });
     }
 
+    // If filter is applied
     if (this.state.filter) {
       data = data.filter((item) => {
         const keys = Object.keys(this.state.filter);
