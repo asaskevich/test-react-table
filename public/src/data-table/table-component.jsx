@@ -18,7 +18,7 @@ class TableComponent extends React.Component {
       pageCount: Math.floor(props.data.length / LIMIT),
       pagination: {
         prev: false,
-        next: props.data.length / LIMIT > 0,
+        next: Math.floor(props.data.length / LIMIT) > 0,
       },
       header: props.header.slice(),
       originalData: props.data.slice(),

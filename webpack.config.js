@@ -1,36 +1,36 @@
-var webpack = require('webpack');
-var path = require('path');
+// const webpack = require('webpack');
+const path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'public/dist');
-var APP_DIR = path.resolve(__dirname, 'public/src');
+const BUILD_DIR = path.resolve(__dirname, 'public/dist');
+const APP_DIR = path.resolve(__dirname, 'public/src');
 
-var config = {
-  entry: APP_DIR + '/index.js',
+const config = {
+  entry: `${APP_DIR}/index.js`,
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
-  module : {
-    loaders : [
+  module: {
+    loaders: [
       {
-        test : /\.jsx?/,
-        include : APP_DIR,
+        test: /\.jsx?/,
+        include: APP_DIR,
         use: [
-          "babel-loader",
-          "eslint-loader",
+          'babel-loader',
+          'eslint-loader',
         ],
       },
       {
-        test : /\.less/,
-        include : APP_DIR,
+        test: /\.less/,
+        include: APP_DIR,
         use: [
-          "style-loader",
-          "css-loader",
-          "less-loader",
+          'style-loader',
+          'css-loader',
+          'less-loader',
         ],
-      }
-    ]
-  }
+      },
+    ],
+  },
 };
 
 module.exports = config;
