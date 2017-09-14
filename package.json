@@ -4,8 +4,8 @@
   "description": "Test task for interview",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d --watch",
-    "build": "webpack -p",
+    "dev": "webpack -d --watch --optimize-minimize",
+    "build": "webpack -p --optimize-minimize",
     "server": "node app.js"
   },
   "author": "Alex Saskevich",

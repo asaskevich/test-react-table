@@ -24,7 +24,7 @@ const config1 = {
       key: 'year',
     },
   ],
-  data: '/data.json',
+  data: 'data.json',
 };
 const config2 = {
   $el: '#table-2',
