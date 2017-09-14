@@ -1,47 +1,47 @@
 .data-footer {
-    display: inline-flex;
-    border: 2px solid #8A9192;
+  display: inline-flex;
+  border: 2px solid #8A9192;
+  font-size: 18px;
+  font-family: Arial, serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 50%;
+  margin: 15px 15px 15px 25%;
+  justify-content: center;
+
+  select {
+    margin: 15px;
     font-size: 18px;
-    font-family: Arial, serif;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 50%;
-    margin: 15px 15px 15px 25%;
-    justify-content: center;
+  }
 
-    select {
-        margin: 15px;
-        font-size: 18px;
+  span {
+    padding: 22px;
+    position: absolute;
+    left: 25%;
+  }
+
+  .disabled {
+    display: none;
+  }
+
+  .data-left-button, .data-right-button, .data-current-page {
+    padding: 10px;
+    margin: 10px 5px;
+    cursor: pointer;
+
+    &:hover {
+      background: #EDF1F1;
+      border-radius: 5px;
     }
+  }
 
-    span {
-        padding: 22px;
-        position: absolute;
-        left: 25%;
-    }
+  .data-current-page {
+    background: #EDF1F1;
+    border-radius: 100%;
+    border: 2px solid #8A9192;
+  }
 
-    .disabled {
-        display: none;
-    }
-
-    .data-left-button, .data-right-button, .data-current-page {
-        padding: 10px;
-        margin: 10px 5px;
-        cursor: pointer;
-
-        &:hover {
-            background: #EDF1F1;
-            border-radius: 5px;
-        }
-    }
-
-    .data-current-page {
-        background: #EDF1F1;
-        border-radius: 100%;
-        border: 2px solid #8A9192;
-    }
-
-    .data-current-page {
-        font-family: bold, serif;
-    }
+  .data-current-page {
+    font-family: bold, serif;
+  }
 }

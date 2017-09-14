@@ -1,73 +1,73 @@
 .data-table {
-    width: 90%;
-    padding: 15px;
-    margin: 5% 5% 20px;
-    font-size: 20px;
-    font-family: Arial, serif;
+  width: 90%;
+  padding: 15px;
+  margin: 5% 5% 20px;
+  font-size: 20px;
+  font-family: Arial, serif;
+  border-collapse: collapse;
+
+  table {
+    width: 300px;
+    padding: 10px;
     border-collapse: collapse;
+  }
 
-    table {
-        width: 300px;
-        padding: 10px;
-        border-collapse: collapse;
+  td, th {
+    padding: 10px;
+    border: 2px solid #8A9192;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+    word-wrap: break-word;
+    white-space: nowrap;
+  }
+  th {
+    background: #EDF1F1;
+
+    &:before {
+      content: "↕";
+      height: 20px;
+      width: 20px;
+      right: -95%;
+      color: lighten(#8A9192, 10%);
+      top: 0;
+      position: relative;
     }
+  }
 
-    td, th {
-        padding: 10px;
-        border: 2px solid #8A9192;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 200px;
-        word-wrap: break-word;
-        white-space: nowrap;
-    }
-    th {
-        background: #EDF1F1;
+  &-header {
+    background: #EDF1F1;
+    font-family: bold, serif;
+    padding: 15px;
+    margin: 15px;
+    text-align: left;
+    cursor: pointer;
+  }
 
+  &-row {
+    .data-sort {
+      &-desc {
         &:before {
-            content: "↕";
-            height: 20px;
-            width: 20px;
-            right: -95%;
-            color: lighten(#8A9192, 10%);
-            top: 0;
-            position: relative;
+          content: "↑";
+          height: 20px;
+          width: 20px;
+          right: -95%;
+          top: 0;
+          position: relative;
+          color: lighten(#8A9192, 5%);
         }
-    }
-
-    &-header {
-        background: #EDF1F1;
-        font-family: bold, serif;
-        padding: 15px;
-        margin: 15px;
-        text-align: left;
-        cursor: pointer;
-    }
-
-    &-row {
-        .data-sort {
-            &-desc {
-                &:before {
-                    content: "↑";
-                    height: 20px;
-                    width: 20px;
-                    right: -95%;
-                    top: 0;
-                    position: relative;
-                    color: lighten(#8A9192, 5%);
-                }
-            }
-            &-asc {
-                &:before {
-                    content: "↓";
-                    height: 20px;
-                    width: 20px;
-                    right: -95%;
-                    top: 0;
-                    position: relative;
-                    color: lighten(#8A9192, 2%);
-                }
-            }
+      }
+      &-asc {
+        &:before {
+          content: "↓";
+          height: 20px;
+          width: 20px;
+          right: -95%;
+          top: 0;
+          position: relative;
+          color: lighten(#8A9192, 2%);
         }
+      }
     }
+  }
 }
