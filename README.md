@@ -1,7 +1,8 @@
 # React-Custom-Datatable
 
 ### Demo?
-https://asaskevich.github.io/test-react-table/public/
+- GitHub Static Pages: https://asaskevich.github.io/test-react-table/public/
+- Amazon WS: https://dsuvi5o3lxn8t.cloudfront.net/
 
 ### What has been used?
 - React (primary and required technology)
