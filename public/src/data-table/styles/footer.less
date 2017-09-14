@@ -1,0 +1,51 @@
+.data-footer {
+    display: inline-flex;
+    border: 2px solid #8A9192;
+    margin: 15px;
+    font-size: 18px;
+    font-family: Arial;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 50%;
+    margin-left: 25%;
+    justify-content: center;
+
+    select {
+        margin: 15px;
+        font-size: 18px;
+    }
+
+    span {
+        padding: 22px;
+        position: absolute;
+        left: 25%;
+    }
+
+    .disabled {
+        display: none;
+    }
+
+    .data-left-button, .data-right-button, .data-current-page {
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background: #EDF1F1;
+            border-radius: 5px;
+        }
+    }
+
+    .data-current-page {
+        background: #EDF1F1;
+        border-radius: 100%;
+        border: 2px solid #8A9192;
+    }
+
+    .data-current-page {
+        font-family: bold;
+    }
+}
