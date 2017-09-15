@@ -25,7 +25,12 @@ export default class Datatable {
    * @param {Array} [data] array of objects used to render table
    */
   prepareData(data) {
-    if (!data || !(data instanceof Array)) return this.renderError(new Error('Data is null or is not an array'));
+    if (!data || !(data instanceof Array)) {
+      return this.renderError(new Error('Data is null or is not an array'));
+    }
+    if (!this.config.header || !(this.config.header instanceof Array)) {
+      return this.renderError(new Error('Header is not provided or is in invalid format'));
+    }
     const fields = {};
     let headerValid = true;
 
